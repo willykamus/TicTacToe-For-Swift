@@ -128,6 +128,15 @@
                                     <action selector="resetGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Oj-Vp-TTc"/>
                                 </connections>
                             </button>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGN-Qk-FVn">
+                                <rect key="frame" x="156.5" y="92" width="62.5" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -135,6 +144,8 @@
                             <constraint firstItem="XkU-jD-Wxn" firstAttribute="trailing" secondItem="uIn-FF-vJ3" secondAttribute="trailing" id="NUw-BM-lY1"/>
                             <constraint firstItem="uIn-FF-vJ3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="POu-4g-js8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uIn-FF-vJ3" secondAttribute="trailing" constant="32" id="SQl-6x-O3u"/>
+                            <constraint firstItem="uIn-FF-vJ3" firstAttribute="top" secondItem="mGN-Qk-FVn" secondAttribute="bottom" constant="56" id="W1R-IE-xg5"/>
+                            <constraint firstItem="mGN-Qk-FVn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jgo-lD-utB"/>
                             <constraint firstItem="XkU-jD-Wxn" firstAttribute="leading" secondItem="uIn-FF-vJ3" secondAttribute="leading" id="o81-wC-Uj4"/>
                             <constraint firstItem="uIn-FF-vJ3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="q6U-it-sUQ"/>
                         </constraints>
@@ -142,6 +153,7 @@
                     </view>
                     <connections>
                         <outlet property="resetButton" destination="XkU-jD-Wxn" id="4te-Xn-R65"/>
+                        <outlet property="winnerLabel" destination="mGN-Qk-FVn" id="dnL-v6-pym"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

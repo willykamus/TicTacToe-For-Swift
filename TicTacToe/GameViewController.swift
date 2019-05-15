@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     var computerPossibleChoices = [1,2,3,4,5,6,7,8,9]
     let winningCombinations = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 
+    @IBOutlet weak var winnerLabel: UILabel!
     
     @IBOutlet weak var resetButton: UIButton!
     
@@ -25,6 +26,7 @@ class GameViewController: UIViewController {
         resetButton.layer.cornerRadius = 20
         resetButton.layer.masksToBounds = true
         resetButton.isHidden = true
+        winnerLabel.isHidden = true
         
         
         // Do any additional setup after loading the view.
@@ -80,6 +82,7 @@ class GameViewController: UIViewController {
         activeUser = 1
         board = [0,0,0,0,0,0,0,0,0]
         computerPossibleChoices = [1,2,3,4,5,6,7,8,9]
+        winnerLabel.isHidden = true
         
         for i in 1...board.count {
             let button = view.viewWithTag(i) as! UIButton
@@ -124,17 +127,22 @@ extension GameViewController {
     
     private func checkResult() {
         
+        var message = ""
+        
         if checkWin() {
             if activeUser == 1 {
-                print("Cross Wins")
+                message = "Cross Wins"
+                displayResult(message, #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1))
             } else {
-                print("Nought Wins")
+                message = "Nought Wins"
+                displayResult(message, #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1))
             }
             gameActive = false
             resetButton.isHidden = false
         } else if checkDraw() {
-            print("It is a draw")
+            message = "It is a draw"
             resetButton.isHidden = false
+            displayResult(message, #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
         }
         
     }
@@ -148,6 +156,18 @@ extension GameViewController {
         print(computerPossibleChoices)
         return tag
     
+    }
+    
+    private func displayResult(_ message:String, _ color:UIColor) {
+        
+        winnerLabel.textColor = color
+        winnerLabel.isHidden = false
+        winnerLabel.text = message
+        winnerLabel.transform = CGAffineTransform.identity
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
+            self.winnerLabel.transform = CGAffineTransform(scaleX: 2, y: 2)
+        }, completion: nil)
+        
     }
     
 }
